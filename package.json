@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Iamnonso/teamwork.git"
+    "url": "git+https://github.com/Iamnonso/teamworkbackend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Iamnonso/teamwork/issues"
+    "url": "https://github.com/Iamnonso/teamworkbackend.git/issues"
   },
-  "homepage": "https://github.com/Iamnonso/teamwork#readme",
+  "homepage": "https://github.com/Iamnonso/teamworkbackend.git#readme",
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
