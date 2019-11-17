@@ -8,11 +8,11 @@ install:
 
 script:
   -npm test
-  -npm run build
+  -npm build
 
   deploy:
     provider: pages
     skip-cleanup: true
     gitub-token: $GITHUB_TOKEN
     on:
-      branch: master
+      branch: gh-pages
