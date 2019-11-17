@@ -2,9 +2,6 @@ language: node_js
 node_js:
 -12.13.0
 
-  directories:
-    - "node_modules"
-
 install:
   -npm ci
 
@@ -17,5 +14,4 @@ script:
     skip-cleanup: true
     gitub-token: $GITHUB_TOKEN
     on:
-    push
       branch: master
