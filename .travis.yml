@@ -15,4 +15,4 @@ script:
     skip-cleanup: true
     gitub-token: $GITHUB_TOKEN
     on:
-      branch: gh-pages
+      branch: master
