@@ -568,6 +568,12 @@ const viewArticle = (request, response) => {
   );
 };
 
+//set index page message
+const indexPage = (request, response) => {
+  response.status(401).send({ message: 'Welcome to teamwork capstone project v1.0, vist the respo @ my github page teamworksbackend@iamnonso, remember to star the project'});
+}
+
+app.get('/', indexPage);
 app.get('/api/v1/auth/signin', login);
 app.post('/api/v1/auth/create-user', createEmployee);
 app.post('/api/v1/user/gifs', shareGits);
