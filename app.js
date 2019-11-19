@@ -62,7 +62,11 @@ const login = (request, response) => {
 
       if (results) {
 
-        if (helper.comparePassword('$2b$10$fUgtEH4q/Naa8/QaGtIxvOlpCKPzk49CB5t41cjaOZQ8ooXK76eyK', request.body.password) === true) {
+        const trimPassword = results.rows[0].password;
+
+        const userPassword = trimPassword.trim();
+
+        if (helper.comparePassword(userPassword , request.body.password) === true) {
           response.status(200).json({
             status: 'success',
             token: helper.generateToken('6s86468s0&$'),
