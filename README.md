@@ -1,6 +1,6 @@
 # teamworksbackend
 
-[![Build Status](https://travis-ci.org/Iamnonso/teamworksbackend.svg?branch=gh-pages)](https://travis-ci.org/Iamnonso/teamworksbackend)
+[![Build Status](https://travis-ci.org/Iamnonso/teamworksbackend.svg?branch=master)](https://travis-ci.org/Iamnonso/teamworksbackend)
 
 
 Teamworkbackend is an organizational social network, which intend to promote team work.
