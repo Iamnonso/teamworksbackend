@@ -426,42 +426,54 @@ const commentOnGif = (request, response) => {
       .send({ messsage: 'Pass all required parameter on the body!' });
   }
 
-  pool.query(
-    'INSERT INTO public.comments("userId", "articleId", dates, commentid, comment) VALUES ($1, $2, $3, $4, $5);',
-    [userId, gifId, createOn, commentId, comment],
-    (errors, results) => {
-      if (errors) {
-        response.status(400).json({
-          errors,
-        });
-      }
+  pool.query('SELECT * FROM public.employees WHERE userId=$1', [userId], (error, result) => {
+    if (error) {
+      response.status(400).json({
+        error,
+      });
+    }
 
-      if (results) {
-        pool.query(
-          'SELECT * FROM public.gifs WHERE "gifId" = $1',
-          [gifId],
-          (error, result) => {
-            if (error) {
-              response.status(400).json({
-                error,
-              });
-            }
-
-            response.status(201).json({
-              status: 'success',
-              data: {
-                message: 'comment created successfully',
-                createdOn: createOn,
-                gifTitle: result.rows[0].title,
-                gifImage: result.rows[0].imageUrl,
-                comment: request.body.comment,
-              },
+    if (result) {
+   
+      pool.query(
+        'INSERT INTO public.comments("userId", "articleId", dates, commentid, comment) VALUES ($1, $2, $3, $4, $5);',
+        [userId, gifId, createOn, commentId, comment],
+        (errors, results) => {
+          if (errors) {
+            response.status(400).json({
+              errors,
             });
-          },
-        );
-      }
-    },
-  );
+          }
+    
+          if (results) {
+            pool.query(
+              'SELECT * FROM public.gifs WHERE "gifId" = $1',
+              [gifId],
+              (error, result) => {
+                if (error) {
+                  response.status(400).json({
+                    error,
+                  });
+                }
+    
+                response.status(201).json({
+                  status: 'success',
+                  data: {
+                    message: 'comment created successfully',
+                    createdOn: createOn,
+                    gifTitle: result.rows[0].title,
+                    gifImage: result.rows[0].imageUrl,
+                    comment: request.body.comment,
+                  },
+                });
+              },
+            );
+          }
+        },
+      );
+  }
+  });
+
 };
 
 // gif feeds
@@ -478,10 +490,12 @@ const gifFeed = (request, response) => {
       });
     }
 
+    if (result) {
     response.status(201).json({
       status: 'success',
       data: result.rows,
     });
+  }
   });
 };
 
