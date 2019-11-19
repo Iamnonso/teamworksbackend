@@ -62,13 +62,15 @@ const login = (request, response) => {
 
       if (results) {
 
-     
+        if (helper.comparePassword('$2b$10$fUgtEH4q/Naa8/QaGtIxvOlpCKPzk49CB5t41cjaOZQ8ooXK76eyK', request.body.password) === true) {
           response.status(200).json({
             status: 'success',
             token: helper.generateToken('6s86468s0&$'),
             data: results.rows,
           });
-       
+        } else {
+          response.status(401).send({ message: 'password does not match any record' });
+        }
 
       }
     },
