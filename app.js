@@ -62,15 +62,13 @@ const login = (request, response) => {
 
       if (results) {
 
-        if (helper.comparePassword(results.rows[0].password, request.body.password) === true) {
+     
           response.status(200).json({
             status: 'success',
             token: helper.generateToken('6s86468s0&$'),
             data: results.rows,
           });
-        } else {
-          response.status(401).send({ message: 'password does not match any record' });
-        }
+       
 
       }
     },
