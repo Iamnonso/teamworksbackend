@@ -570,7 +570,7 @@ const viewArticle = (request, response) => {
 
 //set index page message
 const indexPage = (request, response) => {
-  response.status(401).send({ message: 'Welcome to teamwork capstone project v1.0, vist the respo @ my github page teamworksbackend@iamnonso, remember to star the project'});
+  response.status(200).send({ message: 'Welcome to teamwork capstone project v1.0, vist the respo @ my github page teamworksbackend@iamnonso, remember to star the project'});
 }
 
 app.get('/', indexPage);
