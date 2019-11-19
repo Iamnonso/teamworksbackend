@@ -100,8 +100,6 @@ const createEmployee = (request, response) => {
 
   const userIds = helper.generateuserId();
 
-  const { token } = helper.generateToken('577484EE55BBJJJXXO09EEGD55677889');
-
   pool.query(
     'INSERT INTO public.employees("firstName", "lastName", email, password, gender, "jobRole", department, adddress, "userId") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);',
     [
@@ -213,13 +211,14 @@ const createArticle = (request, response) => {
   pool.query(
     'INSERT INTO public.article("userId", article, dates, "categoryId", "articleId", title) VALUES ($1, $2, $3, $4, $5)',
     [userId, article, create, category, articleIds, title],
-    (errors) => {
+    (errors, results) => {
       if (errors) {
         response.status(400).json({
           errors,
         });
       }
 
+      if (results) {
       response.status(201).json({
         status: 'success',
         data: {
@@ -229,7 +228,10 @@ const createArticle = (request, response) => {
           title: request.body.title,
         },
       });
-    },
+
+    }
+
+    }
   );
 };
 
