@@ -12,3 +12,5 @@ npm ci or npm install
 Note this repo is in beta mode and a project for devc training with Andela
 
 API Documentation https://documenter.getpostman.com/view/9486675/SW7XbVVz
+
+////////////////////////////////////////////////////////

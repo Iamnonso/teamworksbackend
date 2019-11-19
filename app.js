@@ -483,7 +483,7 @@ const gifFeed = (request, response) => {
     return response.status(401).send({ message: 'authorization denied' });
   }
 
-  pool.query('SELECT * FROM public.gifs', (error, result) => {
+  pool.query('SELECT * FROM public.gifs ORDER BY id ASC', (error, result) => {
     if (error) {
       response.status(400).json({
         error,
@@ -506,7 +506,7 @@ const articleFeed = (request, response) => {
     return response.status(401).send({ message: 'authorization denied' });
   }
 
-  pool.query('SELECT * FROM public.article', (error, result) => {
+  pool.query('SELECT * FROM public.article ORDER BY id ASC', (error, result) => {
     if (error) {
       response.status(400).json({
         error,
