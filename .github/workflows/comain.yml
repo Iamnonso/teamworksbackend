@@ -1,0 +1,13 @@
+- name: Codecov
+  uses: codecov/codecov-action@v1.0.4
+  with:
+    # User defined upload name. Visible in Codecov UI
+    name: # optional
+    # Repository upload token - get it from codecov.io
+    token: 
+    # Path to coverage file to upload
+    file: # optional
+    # Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)
+    flags: # optional
+    # Specify the location of the .codecov.yml config file
+    yml: # optional
